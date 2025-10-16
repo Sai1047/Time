@@ -40,11 +40,11 @@ function fmtTime(tz) {
 }
 
 function updateTime() {
-  // Bangladesh (big)
+  //Bangladesh (big)
   const bd = countries[0];
   bigClock.innerHTML = `<h2>${bd.name}</h2><p id="bd-time">${fmtTime(bd.tz)}</p>`;
 
-  // Others
+  //Others
   timeContainer.innerHTML = '';
   countries.slice(1).forEach(c => {
     const box = document.createElement('div');
@@ -54,6 +54,24 @@ function updateTime() {
   });
 }
 
-// start
+//start
 updateTime();
 setInterval(updateTime, 1000);
+
+//load
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
+
+  // Timeout after 10 seconds if load doesn't complete
+const loadTimeout = setTimeout(() => {
+  // Hide spinner (ripple)
+  document.querySelector('.ripple').style.display = 'none';
+  // Show error message
+  document.getElementById('load-error').style.display = 'block';
+}, 10000);  // 10 seconds timeout
+
+window.addEventListener('load', () => {
+  clearTimeout(loadTimeout);
+  document.body.classList.add('loaded');
+});
