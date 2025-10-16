@@ -7,6 +7,20 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+
+<!-- loader -->
+<div id="loader-screen">
+  <div class="spinner"></div>
+</div>
+<!-- Error -->
+<div>
+  <p id="load-error" style="display:none; color: #00f2ff; margin-top: 150px; font-size: 1.2rem;">
+    Network error! Please check your connection and refresh the page.
+  </p>
+</div>
+
+
   <nav>
     <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
@@ -15,12 +29,14 @@
 
   <main>
     <h1>World Clock</h1>
-
     <div id="big-clock" aria-live="polite"></div>
-
     <div id="time-container" class="grid"></div>
   </main>
 
-  <script src="script.js"></script>
+  <script src="script.js"> </script>
+
+
+  </script>
 </body>
 </html>
+
